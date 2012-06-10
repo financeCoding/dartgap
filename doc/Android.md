@@ -23,9 +23,9 @@ Android Cordova Setup
 1. Run the Android SDK Manager by typing **android** in a prompt and install the **ARM** and **Intel ABIs**
 1. Clone Cordova from https://github.com/apache/incubator-cordova-android into a folder named **cordova**
 1. Download [commons-codec][commons-codec] and move it's jar inside Cordova
- * unzip commons-codec-1.6-bin.zip
- * mkdir cordova/framework/libs
- * cp -a commons-codec-1.6/commons-codec-1.6.jar cordova/framework/libs
+ * ```unzip commons-codec-1.6-bin.zip```
+ * ```mkdir cordova/framework/libs```
+ * ```cp -a commons-codec-1.6/commons-codec-1.6.jar cordova/framework/libs```
 1. Build the cordova.jar
  * ```cd cordova/framework```
  * ```android update project -p . -t android-15```
@@ -39,11 +39,9 @@ Create Android Dart Application
 
 In the cordova folder execute the following commands
 
-```
-./bin/create folder/to/create/app/in com.mycompany.app MyApp
-cd folder/to/create/app/in
-./cordova/emulate
-./cordova/debug
-```
+1.  ```./bin/create folder/to/create/app/in com.mycompany.app MyApp```
+1. ```cd folder/to/create/app/in```
+1. ```./cordova/emulate```
+1. ```./cordova/debug```
  
 [commons-codec]: http://mirrors.dotsrc.org/apache/commons/codec/binaries/commons-codec-1.6-bin.zip
