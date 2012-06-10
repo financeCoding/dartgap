@@ -33,7 +33,7 @@ Finally to get the code running on your device check these platform specific gui
 Cordova API status
 ------------------
 
-* Accelerometer
+* Accelerometer: **Partly implemented**
 * Camera
 * Capture
 * Compass
