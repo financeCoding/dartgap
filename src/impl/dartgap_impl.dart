@@ -4,9 +4,6 @@
 // specified in the LICENSE file
 
 class _DartGapImpl extends _DeviceMessageAware implements DartGap {
-  static _DartGapImpl _instance;
-  var _onDeviceReady;
-  
   factory _DartGapImpl() {
     if(_instance === null) {
       _instance = new _DartGapImpl._internal();
@@ -28,4 +25,7 @@ class _DartGapImpl extends _DeviceMessageAware implements DartGap {
   }
   
   set onDeviceReady(void callback(Device device)) => _onDeviceReady = callback;
+  
+  static _DartGapImpl _instance;
+  var _onDeviceReady;
 }

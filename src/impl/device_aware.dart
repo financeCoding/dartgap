@@ -7,9 +7,6 @@
  * Base class for all classes that needs to send messages to Cordova
  */
 class _DeviceAware {
-  final _DeviceMessageRouter _router;
-  final String area;
-
   /**
    * [area] is the area of cordova that the class handles, i.e. notifications, storage, ...
    */
@@ -24,4 +21,7 @@ class _DeviceAware {
    * Create a message, to send to the device later, tailored for this area
    */
   _DeviceMessage createMessage(String type) => new _DeviceMessage(area, type);
+  
+  final _DeviceMessageRouter _router;
+  final String area;
 }

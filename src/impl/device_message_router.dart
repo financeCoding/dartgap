@@ -6,11 +6,6 @@
 typedef _DeviceMessageHandler(_DeviceMessage message);
 
 class _DeviceMessageRouter {
-  final Map<String, _DeviceMessageAware> _messageHandlers;
-  final Map<_Guid, _DeviceMessageHandler> _callbacks;
-  final Logger _logger;
-  static _DeviceMessageRouter _instance;
-  
   factory _DeviceMessageRouter() {
     if(_instance === null) {
       _instance = new _DeviceMessageRouter._internal();
@@ -71,4 +66,10 @@ class _DeviceMessageRouter {
     _logger.debug("sending message ${jsonMessage}");
     window.postMessage(jsonMessage, "*"); 
   }
+  
+  final Map<String, _DeviceMessageAware> _messageHandlers;
+  final Map<_Guid, _DeviceMessageHandler> _callbacks;
+  final Logger _logger;
+  static _DeviceMessageRouter _instance;
 }
+

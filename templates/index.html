@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
     <meta charset="utf-8">
         
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title">    
+        
     <script type="text/javascript" charset="utf-8" src="cordova-1.6.0.js"></script>
     <script type="text/javascript" src="DartGap.js"></script>    
     <script type="text/javascript" src="CordovaApp.dart.js"></script>
@@ -20,6 +22,22 @@
     </script>
   </head>
   <body onload="onBodyLoad()">
-    <h1>Hey, it's Cordova!</h1>
+    <!-- TODO convert this into a Dart template -->
+    <h1>Welcome to Cordova!</h1>
+    <div id="info">
+        <h4>
+        	Platform: <span id="platform"> &nbsp;</span>,   
+        	Version: <span id="version">&nbsp;</span>
+        </h4>
+        <h4>
+        	UUID: <span id="uuid"> &nbsp;</span>,   
+        	Name: <span id="name">&nbsp;</span>
+       	</h4>
+        <h4>
+        	Width: <span id="width"> &nbsp;</span>,   
+        	Height: <span id="height">&nbsp;</span>, 
+        	Color Depth: <span id="colorDepth"></span>
+       	</h4>
+     </div>
   </body>
 </html>

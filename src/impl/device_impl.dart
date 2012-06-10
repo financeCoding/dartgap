@@ -4,11 +4,9 @@
 // specified in the LICENSE file
 
 class _DeviceImpl extends _DeviceAware implements Device {
-  final DeviceNotification notification;
-  
   _DeviceImpl()
-    : super("device"),
-      notification = new _DeviceNotificationImpl();
+    : notification = new _DeviceNotificationImpl(), 
+      super("device");
   
   Future<DeviceInfo> get info() {
     var completer = new Completer<DeviceInfo>();
@@ -45,5 +43,7 @@ class _DeviceImpl extends _DeviceAware implements Device {
     
     return completer.future;
   }
+  
+  final DeviceNotification notification;
 }
 

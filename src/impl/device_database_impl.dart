@@ -4,8 +4,6 @@
 // specified in the LICENSE file
 
 class _DeviceDatabaseImpl extends _DeviceAware implements DeviceDatabase {
-  _Guid _connectionId;
-  
   _DeviceDatabaseImpl(this._connectionId): super("database"); 
   
   Future<SQLResult> executeSql(String sql) {
@@ -21,7 +19,7 @@ class _DeviceDatabaseImpl extends _DeviceAware implements DeviceDatabase {
   }
   
   SQLBatch batchSql(String sql) {
-    SQLBatch batch = new _SQLBatchImpl(_batchExecutor);
+    var batch = new _SQLBatchImpl(_batchExecutor);
     batch.batchSql(sql);
     return batch;
   }
@@ -78,4 +76,6 @@ class _DeviceDatabaseImpl extends _DeviceAware implements DeviceDatabase {
     message.content["connectionId"] = _connectionId.toString();
     return message;
   }
+  
+  _Guid _connectionId;
 }

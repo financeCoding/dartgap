@@ -18,8 +18,8 @@ found [here][ios]. A short version is given below
 Create iOS Dart App
 -------------------
 
-1. Copy the **templates/iOS/index.html** file from **DartGap** into your projects **www** folder.
-1. Compile **templates/CordovaApp.dart** with **dart2js** and copy **CordovaApp.dart.js** to the projects **www** folder
+1. Copy the **templates/index.html** file into your Cordova projects **www** folder.
+1. Compile **templates/cordova_app.dart** with **dart2js** and copy the generated **out.js** to the projects **www** folder
 1. Copy **DartGap.js** to your projects **www** folder.
 1. Launch iOS Simulator from XCode.
 

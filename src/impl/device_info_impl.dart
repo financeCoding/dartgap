@@ -4,15 +4,24 @@
 // specified in the LICENSE file
 
 class _DeviceInfoImpl implements DeviceInfo {
-  final String name;
-  final String cordova;
-  final String platform;
-  final String uuid;
-  final String version;
-  
   factory _DeviceInfoImpl(Map data) {
-    return new _DeviceInfoImpl._internal(data["name"], data["cordova"], data["platform"], data["uuid"], data["version"]);
+    var screenInfo = new _DeviceScreenImpl(data["screen"]);
+    var deviceInfo = new _DeviceInfoImpl._internal(
+      data["name"], 
+      data["cordovaVersion"], 
+      data["platform"], 
+      data["uuid"], 
+      data["deviceVersion"], 
+      screenInfo);
+    return deviceInfo;
   }
   
-  _DeviceInfoImpl._internal(this.name, this.cordova, this.platform, this.uuid, this.version);
+  _DeviceInfoImpl._internal(this.name, this.cordovaVersion, this.platform, this.uuid, this.deviceVersion, this.screen);
+  
+  final String name;
+  final String cordovaVersion;
+  final String platform;
+  final String uuid;
+  final String deviceVersion;
+  final DeciceScreen screen;
 }

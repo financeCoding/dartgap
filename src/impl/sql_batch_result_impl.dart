@@ -4,8 +4,6 @@
 // specified in the LICENSE file
 
 class _SQLBatchResultImpl implements SQLBatchResult {
-  List<SQLResult> results;
-  
   _SQLBatchResultImpl(_DeviceMessage message) {
     results = new List<SQLResult>();
     message.content.forEach((var data) {
@@ -18,4 +16,6 @@ class _SQLBatchResultImpl implements SQLBatchResult {
   forEach(f(SQLResult result)) => results.forEach(f);
   
   String toString() => results.toString();
+  
+  List<SQLResult> results;
 }

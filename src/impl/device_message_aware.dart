@@ -7,9 +7,6 @@
  * Base class for classes that handles messages send from the Device to Dart 
  */
 class _DeviceMessageAware {
-  final _DeviceMessageRouter _router;
-  final String area;
-
   _DeviceMessageAware(this.area): _router = new _DeviceMessageRouter() {
     _router.registerMessageHandler(this);
   }
@@ -18,6 +15,9 @@ class _DeviceMessageAware {
    * Method invoked when the Device calls Dart directly 
    */
   abstract receiveMessage(_DeviceMessage message);
+  
+  final _DeviceMessageRouter _router;
+  final String area;
 }
 
 

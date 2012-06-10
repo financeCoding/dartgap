@@ -4,9 +4,6 @@
 // specified in the LICENSE file
 
 class _SQLBatchImpl implements SQLBatch {
-  final List<String> _queries;
-  final BatchExecutor _executor;
-
   _SQLBatchImpl(this._executor): _queries = new List<String>();
   
   SQLBatch batchSql(String sql) {
@@ -15,6 +12,9 @@ class _SQLBatchImpl implements SQLBatch {
   }
   
   Future<SQLBatchResult> executeBatch() => _executor(_queries);
+  
+  final List<String> _queries;
+  final BatchExecutor _executor;
 }
 
 typedef Future<SQLBatchResult> BatchExecutor(List<String> queries);

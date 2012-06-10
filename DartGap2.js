@@ -113,10 +113,15 @@ DartGap.MessageHandler = function() {
 			  	case "info": 
 				    result = {
 			          	"name": device.name,    
-			    	  	"cordova": device.cordova,
+			    	  	"cordovaVersion": device.cordova,
 			    	  	"platform": device.platform, 
 			    	  	"uuid": device.uuid,    
-			    	  	"version": device.version 
+			    	  	"deviceVersion": device.version,
+			    	  	"screen": {
+			          		"colorDepth": screen.colorDepth,    
+			    	  		"height": screen.height,
+			    	  		"width": screen.width 
+			        	} 
 			        };
 			        callback(result);
 			        break;

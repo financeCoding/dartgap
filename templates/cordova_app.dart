@@ -1,7 +1,7 @@
 #library("qalqo:dartgap:testapp");
 
 #import("dart:html");
-#import("../Lib.dart");
+#import("../lib.dart");
 
 main() {
   dartgap.onDeviceReady = ((Device device) {
@@ -28,13 +28,26 @@ main() {
     });
     
     // device API
+    //-- TODO convert this into a Dart template 
     device.info.then((DeviceInfo deviceInfo) {
-      _addHtml("<h2>Dart got Device Info!</h2>");
-      _addHtml("<p>name: ${deviceInfo.name}</p>");
-      _addHtml("<p>cordova: ${deviceInfo.cordova}</p>");
-      _addHtml("<p>platform: ${deviceInfo.platform}</p>");
-      _addHtml("<p>uuid: ${deviceInfo.uuid}</p>");
-      _addHtml("<p>version: ${deviceInfo.version}</p>");
+      _addHtml(""" 
+        <article id='info'>
+        <h4>
+          Platform: <span id='platform'>${deviceInfo.platform}</span>   
+          Device version: <span id='version'>${deviceInfo.deviceVersion}</span>
+          Cordova version: <span id='version'>${deviceInfo.cordovaVersion}</span>
+        </h4>
+        <h4>
+          UUID: <span id='uuid'>${deviceInfo.uuid}</span>   
+          Name: <span id='name'>${deviceInfo.name}</span>
+        </h4>
+        <h4>
+          Color depth: <span id='colorDepth'>${deviceInfo.screen.colorDepth}</span>
+          Height: <span id='height'>${deviceInfo.screen.height}</span>, 
+          Width: <span id='width'>${deviceInfo.screen.width};</span>,   
+        </h4>
+        </article>
+      """);
     });
    
     // notification API
@@ -42,9 +55,10 @@ main() {
   });
 }
 
-_addHtml(String html) {
-  document.body.nodes.add(new Element.html(html));
-}
+_addHtmlTo(String html, Element target) => target.nodes.add(new Element.html(html));
+
+_addHtml(String html) => _addHtmlTo(html, document.body);
+
 
 
 

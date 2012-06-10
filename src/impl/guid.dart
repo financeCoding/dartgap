@@ -9,8 +9,6 @@
  * TODO Delete once a real one is added to dart:core
  */
 class _Guid implements Hashable {
-  final String value;
-  
   factory _Guid() {
     int now = new Date.now().value;
     String guid = "${now}-${(Math.random() * now).toInt()}";
@@ -27,4 +25,6 @@ class _Guid implements Hashable {
   int hashCode() => value.hashCode();
   
   toString() => value;
+  
+  final String value;
 }

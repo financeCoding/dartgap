@@ -7,10 +7,6 @@
  * Messages send and recived from Cordova to Dart
  */
 class _DeviceMessage {
-  var callback, error, content;
-  final String area;
-  final String type;
-  
   factory _DeviceMessage.json(var json) {
     var message = new _DeviceMessage(json["area"], json["type"]);
     message.content = json["content"];
@@ -40,6 +36,10 @@ class _DeviceMessage {
   }
   
   bool get hasErrors() => error !== null;
+  
+  var callback, error, content;
+  final String area;
+  final String type;
 }
 
 

@@ -4,7 +4,7 @@
 // specified in the LICENSE file
 
 /**
- * Device information such as platform and version
+ * Device information 
  */
 interface DeviceInfo {
   /**
@@ -15,7 +15,7 @@ interface DeviceInfo {
   /** 
    * Get the version of Cordova running on the device.
    */
-  String get cordova();
+  String get cordovaVersion();
   
   /**
    * Get the device's operating system name.
@@ -30,5 +30,10 @@ interface DeviceInfo {
   /**
    * Get the operating system version.
    */
-  String get version();
+  String get deviceVersion();
+  
+  /**
+   * Retrieve device screen information such as hight and width
+   */
+  DeviceScreen get screen();
 }
