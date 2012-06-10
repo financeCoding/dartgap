@@ -54,5 +54,5 @@ TODO
 ----
 * Implement more of the Cordova API http://docs.phonegap.com/en/edge/index.html
 
-[android]: https://github.com/Qalqo/dartgap/blob/master/doc/android.md
+[android]: https://github.com/Qalqo/dartgap/blob/master/doc/Android.md
 [ios]: https://github.com/Qalqo/dartgap/blob/master/doc/iOS.md
