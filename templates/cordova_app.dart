@@ -30,12 +30,17 @@ main() {
           <ul>
              <li><button id='alert'>Alert</button></li>
              <li><button id='beep'>Beep</button></li>
+             <li><button id='confirm'>Confirm</button></li>
              <li><button id='vibrate'>Vibrate</button></li>
           </ul>
         </article>
       """);
       document.query("#alert").on.click.add((e) => device.notification.alert("Dart says hello"));
       document.query("#beep").on.click.add((e) => device.notification.beep(2));
+      document.query("#confirm").on.click.add((e) {
+        var confirmCallback = device.notification.confirm("Dart rocks");
+        confirmCallback.then((int btn) => device.notification.alert("clicked $btn"));
+      });
       document.query("#vibrate").on.click.add((e) => device.notification.vibrate(2000));
     });
     

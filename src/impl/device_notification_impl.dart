@@ -25,6 +25,22 @@ class _DeviceNotificationImpl extends _DeviceAware implements DeviceNotification
     sendMessage(message);
   }
   
+  Future<int> confirm(String dialog, [String title = "Confirm", String labels = "OK,Cancel"]) {
+    var completer = new Completer<Map>();
+    
+    var message = createMessage("confirm");
+    message.content["dialog"] = dialog;
+    message.content["title"] = title;
+    message.content["labels"] = labels;
+    message.callback = (_DeviceMessage msg) {
+      var btnIndex = msg.content;
+      completer.complete(btnIndex);
+    };
+    sendMessage(message);
+    
+    return completer.future;
+  }
+  
   vibrate(int duration) {
     var message = createMessage("vibrate");
     message.content["duration"] = duration;

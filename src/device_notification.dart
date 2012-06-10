@@ -20,6 +20,13 @@ interface DeviceNotification {
   beep(int times);
   
   /**
+   * Show confirmation dialog.
+   *
+   * Returns callback with the index of the button clicked (1,2).
+   */  
+  Future<int> confirm(String dialog, [String title, String labels]);
+  
+  /**
    * Vibrate for [duration] milliseconds
    */
   vibrate(int duration);
