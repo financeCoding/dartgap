@@ -139,6 +139,12 @@ DartGap.MessageHandler = function() {
 				case "alert":
 			    	navigator.notification.alert(message.content.alert, callback);
 			    	break;
+			    case "beep":
+			    	navigator.notification.beep(message.content.times);
+			    	break;
+			    case "bibrate":
+			    	navigator.notification.vibrate(message.content.duration);
+			    	break;
 			    default:
 			    	throw "unhandled notification message type " + message.type;
 			}

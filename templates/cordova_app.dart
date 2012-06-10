@@ -22,6 +22,21 @@ main() {
           </ul>
         </article>
       """);
+      
+      // notification API
+      _addHtml(""" 
+        <article id='notification'>
+          <h2>Dart Notifications</h2>
+          <ul>
+             <li><button id='alert'>Alert</button></li>
+             <li><button id='beep'>Beep</button></li>
+             <li><button id='vibrate'>Vibrate</button></li>
+          </ul>
+        </article>
+      """);
+      document.query("#alert").on.click.add((e) => device.notification.alert("Dart says hello"));
+      document.query("#beep").on.click.add((e) => device.notification.beep(2));
+      document.query("#vibrate").on.click.add((e) => device.notification.vibrate(2000));
     });
     
     // database API
@@ -43,9 +58,6 @@ main() {
       });
       batchCallback.handleException((Exception e) => print("error is $e"));
     });
-   
-    // notification API
-    device.notification.alert("Dart says hello");
   });
 }
 

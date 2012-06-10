@@ -18,4 +18,16 @@ class _DeviceNotificationImpl extends _DeviceAware implements DeviceNotification
     
     return completer.future;
   }
+  
+  beep(int times) {
+    var message = createMessage("beep");
+    message.content["times"] = times;
+    sendMessage(message);
+  }
+  
+  vibrate(int duration) {
+    var message = createMessage("vibrate");
+    message.content["duration"] = duration;
+    sendMessage(message);
+  }
 }

@@ -1,2 +1,3 @@
 *.dart.js
 samples
+templates/out.js

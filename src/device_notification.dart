@@ -13,4 +13,14 @@ interface DeviceNotification {
    * Note the future returns when the user closes the box
    */
   Future<Map> alert(String alertMessage);
+  
+  /**
+   * Beep a number of [times]
+   */
+  beep(int times);
+  
+  /**
+   * Vibrate for [duration] milliseconds
+   */
+  vibrate(int duration);
 }

@@ -23,5 +23,5 @@ class _DeviceInfoImpl implements DeviceInfo {
   final String platform;
   final String uuid;
   final String deviceVersion;
-  final DeciceScreen screen;
+  final DeviceScreen screen;
 }
