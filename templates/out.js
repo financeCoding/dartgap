@@ -985,7 +985,7 @@ $$.ConstantMap = {"":
  forEach$1: function(f) {
   var t1 = ({});
   t1.f_13 = f;
-  $.forEach(this._lib2_keys, new $.Closure23(this, t1));
+  $.forEach(this._lib2_keys, new $.Closure28(this, t1));
  },
  operator$index$1: function(key) {
   if (this.containsKey$1(key) !== true) {
@@ -1335,7 +1335,7 @@ $$.FilteredElementList = {"":
   $.clear(this._childNodes);
  },
  removeRange$2: function(start, rangeLength) {
-  $.forEach($.getRange(this.get$_filtered(), start, rangeLength), new $.Closure22());
+  $.forEach($.getRange(this.get$_filtered(), start, rangeLength), new $.Closure27());
  },
  addLast$1: function(value) {
   this.add$1(value);
@@ -1375,7 +1375,7 @@ $$.FilteredElementList = {"":
  },
  first$0: function() { return this.get$first().$call$0(); },
  get$_filtered: function() {
-  return $.List$from($.filter(this._childNodes, new $.Closure20()));
+  return $.List$from($.filter(this._childNodes, new $.Closure25()));
  },
  is$List2: function() { return true; },
  is$Collection: function() { return true; }
@@ -1437,7 +1437,7 @@ $$._ChildrenElementList = {"":
   var t1 = ({});
   t1.f_12 = f;
   var output = [];
-  this.forEach$1(new $.Closure21(t1, output));
+  this.forEach$1(new $.Closure26(t1, output));
   return $._FrozenElementList$_wrap$1(output);
  },
  forEach$1: function(f) {
@@ -2049,7 +2049,7 @@ $$._DeviceDatabaseImpl = {"":
   t1.completer_13 = completer;
   var message = this._connectionMessage$1('executeBatch');
   $.indexSet(message.get$content(), 'queries', queries);
-  message.set$callback(new $.Closure26(t1));
+  message.set$callback(new $.Closure22(t1));
   this.sendMessage$1(message);
   return t1.completer_13.get$future();
  },
@@ -2077,7 +2077,7 @@ $$._DeviceImpl = {"":
   $.indexSet(message.get$content(), 'version', version);
   $.indexSet(message.get$content(), 'displayName', displayName);
   $.indexSet(message.get$content(), 'size', size);
-  message.set$callback(new $.Closure19(t1));
+  message.set$callback(new $.Closure18(t1));
   this.sendMessage$1(message);
   return t1.completer_2.get$future();
  },
@@ -2087,7 +2087,7 @@ $$._DeviceImpl = {"":
   $.setRuntimeTypeInfo(completer, ({T: 'DeviceInfo'}));
   t1.completer_12 = completer;
   var message = this.createMessage$1('info');
-  message.set$callback(new $.Closure18(t1));
+  message.set$callback(new $.Closure19(t1));
   this.sendMessage$1(message);
   return t1.completer_12.get$future();
  }
@@ -2235,7 +2235,7 @@ $$._SQLBatchResultImpl = {"":
   var t1 = $.List((void 0));
   $.setRuntimeTypeInfo(t1, ({E: 'SQLResult'}));
   this.results = t1;
-  $.forEach(message.get$content(), new $.Closure27(this));
+  $.forEach(message.get$content(), new $.Closure23(this));
  }
 };
 
@@ -2799,9 +2799,8 @@ $$.Closure = {"":
  [],
  super: "Closure33",
  $call$1: function(device) {
-  $._addHtml('<h1>Hey, it\'s Dart!</h1>');
-  device.openDatabase$4('testdb', '1.0', 'TestDB', 10000).then$1(new $.Closure14());
-  device.get$info().then$1(new $.Closure15());
+  device.get$info().then$1(new $.Closure14());
+  device.openDatabase$4('testdb', '1.0', 'TestDB', 10000).then$1(new $.Closure15());
   device.get$notification().alert$1('Dart says hello');
  }
 };
@@ -2809,23 +2808,31 @@ $$.Closure = {"":
 $$.Closure14 = {"":
  [],
  super: "Closure33",
- $call$1: function(db) {
-  var batchCallback = db.batchSql$1('DROP TABLE IF EXISTS USERS').batchSql$1('CREATE TABLE IF NOT EXISTS USERS (id unique, username unique)').batchSql$1('INSERT INTO USERS (id, username) VALUES (1, \'Bob\')').batchSql$1('INSERT INTO USERS (id, username) VALUES (2, \'Seth\')').batchSql$1('SELECT * FROM USERS').executeBatch$0();
-  batchCallback.then$1(new $.Closure24());
-  batchCallback.handleException$1(new $.Closure25());
+ $call$1: function(deviceInfo) {
+  $._addHtml(' \n        <article id=\'info\'>\n          <h2>Dart is running on:</h2>\n          <ul>\n            <li>Platform: ' + $.S(deviceInfo.get$platform()) + '</li>   \n            <li>Device version: ' + $.S(deviceInfo.get$deviceVersion()) + '</li>\n            <li>Cordova version: ' + $.S(deviceInfo.get$cordovaVersion()) + '</li>\n            <li>UUID: ' + $.S(deviceInfo.get$uuid()) + '</li>   \n            <li>Name: ' + $.S(deviceInfo.get$name()) + '</li>\n            <li>Color depth: ' + $.S(deviceInfo.get$screen().get$colorDepth()) + '</li>   \n            <li>Height: ' + $.S(deviceInfo.get$screen().get$height()) + '</li>\n            <li>Width: ' + $.S(deviceInfo.get$screen().get$width()) + '</li>\n          </ul>\n        </article>\n      ');
  }
 };
 
-$$.Closure24 = {"":
+$$.Closure15 = {"":
+ [],
+ super: "Closure33",
+ $call$1: function(db) {
+  var batchCallback = db.batchSql$1('DROP TABLE IF EXISTS USERS').batchSql$1('CREATE TABLE IF NOT EXISTS USERS (id unique, username unique)').batchSql$1('INSERT INTO USERS (id, username) VALUES (1, \'Bob\')').batchSql$1('INSERT INTO USERS (id, username) VALUES (2, \'Seth\')').batchSql$1('SELECT * FROM USERS').executeBatch$0();
+  batchCallback.then$1(new $.Closure20());
+  batchCallback.handleException$1(new $.Closure21());
+ }
+};
+
+$$.Closure20 = {"":
  [],
  super: "Closure33",
  $call$1: function(result) {
   $._addHtml('<h2>Dart talked to the Device Database!</h2>');
-  $.forEach($.index(result, 4), new $.Closure28());
+  $.forEach($.index(result, 4), new $.Closure24());
  }
 };
 
-$$.Closure28 = {"":
+$$.Closure24 = {"":
  [],
  super: "Closure33",
  $call$1: function(data) {
@@ -2835,19 +2842,11 @@ $$.Closure28 = {"":
  }
 };
 
-$$.Closure25 = {"":
+$$.Closure21 = {"":
  [],
  super: "Closure33",
  $call$1: function(e) {
   return $.print('error is ' + $.S(e));
- }
-};
-
-$$.Closure15 = {"":
- [],
- super: "Closure33",
- $call$1: function(deviceInfo) {
-  $._addHtml(' \n        <article id=\'info\'>\n        <h4>\n          Platform: <span id=\'platform\'>' + $.S(deviceInfo.get$platform()) + '</span>   \n          Device version: <span id=\'version\'>' + $.S(deviceInfo.get$deviceVersion()) + '</span>\n          Cordova version: <span id=\'version\'>' + $.S(deviceInfo.get$cordovaVersion()) + '</span>\n        </h4>\n        <h4>\n          UUID: <span id=\'uuid\'>' + $.S(deviceInfo.get$uuid()) + '</span>   \n          Name: <span id=\'name\'>' + $.S(deviceInfo.get$name()) + '</span>\n        </h4>\n        <h4>\n          Color depth: <span id=\'colorDepth\'>' + $.S(deviceInfo.get$screen().get$colorDepth()) + '</span>\n          Height: <span id=\'height\'>' + $.S(deviceInfo.get$screen().get$height()) + '</span>, \n          Width: <span id=\'width\'>' + $.S(deviceInfo.get$screen().get$width()) + ';</span>,   \n        </h4>\n        </article>\n      ');
  }
 };
 
@@ -3007,15 +3006,6 @@ $$.Closure18 = {"":
  ["box_0"],
  super: "Closure33",
  $call$1: function(msg) {
-  var info = $._DeviceInfoImpl(msg.get$content());
-  this.box_0.completer_12.complete$1(info);
- }
-};
-
-$$.Closure19 = {"":
- ["box_0"],
- super: "Closure33",
- $call$1: function(msg) {
   if (msg.get$hasErrors() === true) {
     this.box_0.completer_2.completeException$1('failed to open database ' + $.S(this.box_0.name_1));
   } else {
@@ -3025,41 +3015,16 @@ $$.Closure19 = {"":
  }
 };
 
-$$.Closure20 = {"":
- [],
+$$.Closure19 = {"":
+ ["box_0"],
  super: "Closure33",
- $call$1: function(n) {
-  return typeof n === 'object' && n.is$Element();
- }
-};
-
-$$.Closure21 = {"":
- ["box_0", "output_2"],
- super: "Closure33",
- $call$1: function(element) {
-  if (this.box_0.f_12.$call$1(element) === true) {
-    $.add$1(this.output_2, element);
-  }
+ $call$1: function(msg) {
+  var info = $._DeviceInfoImpl(msg.get$content());
+  this.box_0.completer_12.complete$1(info);
  }
 };
 
 $$.Closure22 = {"":
- [],
- super: "Closure33",
- $call$1: function(el) {
-  return el.remove$0();
- }
-};
-
-$$.Closure23 = {"":
- ["this_2", "box_0"],
- super: "Closure33",
- $call$1: function(key) {
-  return this.box_0.f_13.$call$2(key, $.index(this.this_2, key));
- }
-};
-
-$$.Closure26 = {"":
  ["box_0"],
  super: "Closure33",
  $call$1: function(msg) {
@@ -3072,11 +3037,45 @@ $$.Closure26 = {"":
  }
 };
 
-$$.Closure27 = {"":
+$$.Closure23 = {"":
  ["this_0"],
  super: "Closure33",
  $call$1: function(data) {
   $.add$1(this.this_0.get$results(), $._SQLResultImpl$2($.index(data, 'query'), $.index(data, 'result')));
+ }
+};
+
+$$.Closure25 = {"":
+ [],
+ super: "Closure33",
+ $call$1: function(n) {
+  return typeof n === 'object' && n.is$Element();
+ }
+};
+
+$$.Closure26 = {"":
+ ["box_0", "output_2"],
+ super: "Closure33",
+ $call$1: function(element) {
+  if (this.box_0.f_12.$call$1(element) === true) {
+    $.add$1(this.output_2, element);
+  }
+ }
+};
+
+$$.Closure27 = {"":
+ [],
+ super: "Closure33",
+ $call$1: function(el) {
+  return el.remove$0();
+ }
+};
+
+$$.Closure28 = {"":
+ ["this_2", "box_0"],
+ super: "Closure33",
+ $call$1: function(key) {
+  return this.box_0.f_13.$call$2(key, $.index(this.this_2, key));
  }
 };
 
@@ -3787,16 +3786,16 @@ $.stringContainsUnchecked = function(receiver, other, startIndex) {
   }
 };
 
+$.add = function(a, b) {
+  return typeof a === 'number' && typeof b === 'number' ? (a + b) : $.add$slow(a, b);
+};
+
 $.ObjectNotClosureException$0 = function() {
   return new $.ObjectNotClosureException();
 };
 
 $.window = function() {
   return window;;
-};
-
-$.add = function(a, b) {
-  return typeof a === 'number' && typeof b === 'number' ? (a + b) : $.add$slow(a, b);
 };
 
 $._DartGapImpl = function() {
@@ -3815,13 +3814,6 @@ $.abs = function(receiver) {
 
 $.regExpAttachGlobalNative = function(regExp) {
   regExp._re = $.regExpMakeNative(regExp, true);
-};
-
-$.iterator = function(receiver) {
-  if ($.isJsArray(receiver) === true) {
-    return $.ListIterator$1(receiver);
-  }
-  return receiver.iterator$0();
 };
 
 $.leB = function(a, b) {
@@ -3852,6 +3844,13 @@ $.regExpMakeNative = function(regExp, global) {
   }
 };
 
+$.iterator = function(receiver) {
+  if ($.isJsArray(receiver) === true) {
+    return $.ListIterator$1(receiver);
+  }
+  return receiver.iterator$0();
+};
+
 $.BadNumberFormatException$1 = function(_s) {
   return new $.BadNumberFormatException(_s);
 };
@@ -3874,13 +3873,6 @@ $.mapToString = function(m) {
   var result = $.StringBufferImpl$1('');
   $._emitMap(m, result, $.List((void 0)));
   return result.toString$0();
-};
-
-$.isEmpty = function(receiver) {
-  if (typeof receiver === 'string' || $.isJsArray(receiver) === true) {
-    return receiver.length === 0;
-  }
-  return receiver.isEmpty$0();
 };
 
 $.lazyAsJsDate = function(receiver) {
@@ -3930,8 +3922,11 @@ $._emitMap = function(m, result, visiting) {
   $.removeLast(t1.visiting_2);
 };
 
-$._DeviceScreenImpl = function(data) {
-  return $._DeviceScreenImpl$_internal$3($.index(data, 'colorDepth'), $.index(data, 'height'), $.index(data, 'width'));
+$.isEmpty = function(receiver) {
+  if (typeof receiver === 'string' || $.isJsArray(receiver) === true) {
+    return receiver.length === 0;
+  }
+  return receiver.isEmpty$0();
 };
 
 $._IDBDatabaseEventsImpl$1 = function(_ptr) {
@@ -3948,6 +3943,10 @@ $._Guid$fromValue$1 = function(value) {
 
 $.ge = function(a, b) {
   return typeof a === 'number' && typeof b === 'number' ? (a >= b) : $.ge$slow(a, b);
+};
+
+$._DeviceScreenImpl = function(data) {
+  return $._DeviceScreenImpl$_internal$3($.index(data, 'colorDepth'), $.index(data, 'height'), $.index(data, 'width'));
 };
 
 $._TextTrackCueEventsImpl$1 = function(_ptr) {
@@ -4187,16 +4186,16 @@ $._ChildrenElementList$_wrap$1 = function(element) {
   return new $._ChildrenElementList(element.get$$$dom_children(), element);
 };
 
-$._AllMatchesIterable$2 = function(_re, _str) {
-  return new $._AllMatchesIterable(_str, _re);
-};
-
 $.addLast = function(receiver, value) {
   if ($.isJsArray(receiver) !== true) {
     return receiver.addLast$1(value);
   }
   $.checkGrowable(receiver, 'addLast');
   receiver.push(value);
+};
+
+$._AllMatchesIterable$2 = function(_re, _str) {
+  return new $._AllMatchesIterable(_str, _re);
 };
 
 $.dynamicSetMetadata = function(inputTable) {
@@ -4616,6 +4615,20 @@ $._BatteryManagerEventsImpl$1 = function(_ptr) {
   return new $._BatteryManagerEventsImpl(_ptr);
 };
 
+$.toInt = function(receiver) {
+  if (!(typeof receiver === 'number')) {
+    return receiver.toInt$0();
+  }
+  if ($.isNaN(receiver) === true) {
+    throw $.captureStackTrace($.BadNumberFormatException$1('NaN'));
+  }
+  if ($.isInfinite(receiver) === true) {
+    throw $.captureStackTrace($.BadNumberFormatException$1('Infinity'));
+  }
+  var truncated = $.truncate(receiver);
+  return (truncated == -0.0) ? 0 : truncated;
+};
+
 $.toString = function(value) {
   if (typeof value == "object") {
     if ($.isJsArray(value) === true) {
@@ -4634,20 +4647,6 @@ $.toString = function(value) {
     return 'Closure';
   }
   return String(value);
-};
-
-$.toInt = function(receiver) {
-  if (!(typeof receiver === 'number')) {
-    return receiver.toInt$0();
-  }
-  if ($.isNaN(receiver) === true) {
-    throw $.captureStackTrace($.BadNumberFormatException$1('NaN'));
-  }
-  if ($.isInfinite(receiver) === true) {
-    throw $.captureStackTrace($.BadNumberFormatException$1('Infinity'));
-  }
-  var truncated = $.truncate(receiver);
-  return (truncated == -0.0) ? 0 : truncated;
 };
 
 $._WebSocketEventsImpl$1 = function(_ptr) {
@@ -4760,6 +4759,27 @@ $._hexDigit = function(x) {
   return $.ltB(x, 10) ? $.add(48, x) : $.add(87, x);
 };
 
+$.indexOf = function(a, element, startIndex, endIndex) {
+  if (typeof a !== 'string' && (typeof a !== 'object'||a.constructor !== Array)) return $.indexOf$bailout(a, element, startIndex, endIndex, 1, a, 0, 0);
+  if (typeof endIndex !== 'number') return $.indexOf$bailout(a, element, startIndex, endIndex, 2, a, endIndex, 0);
+  if ($.geB(startIndex, a.length)) {
+    return -1;
+  }
+  if ($.ltB(startIndex, 0)) {
+    var startIndex = 0;
+  }
+  if (typeof startIndex !== 'number') return $.indexOf$bailout(a, element, startIndex, endIndex, 3, a, endIndex, startIndex);
+  for (var i = startIndex; i < endIndex; ++i) {
+    if (i !== (i | 0)) throw $.iae(i);
+    var t1 = a.length;
+    if (i < 0 || i >= t1) throw $.ioore(i);
+    if ($.eqB(a[i], element)) {
+      return i;
+    }
+  }
+  return -1;
+};
+
 $.set$length = function(receiver, newLength) {
   if ($.isJsArray(receiver) === true) {
     $.checkNull(newLength);
@@ -4790,27 +4810,6 @@ $.gt$slow = function(a, b) {
 
 $.dartgap = function() {
   return $._DartGapImpl();
-};
-
-$.indexOf = function(a, element, startIndex, endIndex) {
-  if (typeof a !== 'string' && (typeof a !== 'object'||a.constructor !== Array)) return $.indexOf$bailout(a, element, startIndex, endIndex, 1, a, 0, 0);
-  if (typeof endIndex !== 'number') return $.indexOf$bailout(a, element, startIndex, endIndex, 2, a, endIndex, 0);
-  if ($.geB(startIndex, a.length)) {
-    return -1;
-  }
-  if ($.ltB(startIndex, 0)) {
-    var startIndex = 0;
-  }
-  if (typeof startIndex !== 'number') return $.indexOf$bailout(a, element, startIndex, endIndex, 3, a, endIndex, startIndex);
-  for (var i = startIndex; i < endIndex; ++i) {
-    if (i !== (i | 0)) throw $.iae(i);
-    var t1 = a.length;
-    if (i < 0 || i >= t1) throw $.ioore(i);
-    if ($.eqB(a[i], element)) {
-      return i;
-    }
-  }
-  return -1;
 };
 
 $.typeNameInFirefox = function(obj) {
@@ -4902,6 +4901,14 @@ $.startsWith = function(receiver, other) {
   return other == receiver.substring(0, length$);
 };
 
+$.forEach = function(receiver, f) {
+  if ($.isJsArray(receiver) !== true) {
+    return receiver.forEach$1(f);
+  } else {
+    return $.forEach2(receiver, f);
+  }
+};
+
 $.le = function(a, b) {
   return typeof a === 'number' && typeof b === 'number' ? (a <= b) : $.le$slow(a, b);
 };
@@ -4910,11 +4917,9 @@ $.toStringForNativeObject = function(obj) {
   return 'Instance of ' + $.S($.getTypeNameOf(obj));
 };
 
-$.forEach = function(receiver, f) {
-  if ($.isJsArray(receiver) !== true) {
-    return receiver.forEach$1(f);
-  } else {
-    return $.forEach2(receiver, f);
+$.forEach2 = function(iterable, f) {
+  for (var t1 = $.iterator(iterable); t1.hasNext$0() === true; ) {
+    f.$call$1(t1.next$0());
   }
 };
 
@@ -4925,38 +4930,8 @@ $.trim = function(receiver) {
   return receiver.trim();
 };
 
-$.forEach2 = function(iterable, f) {
-  for (var t1 = $.iterator(iterable); t1.hasNext$0() === true; ) {
-    f.$call$1(t1.next$0());
-  }
-};
-
 $._addHtml = function(html) {
   return $._addHtmlTo(html, $.document().get$body());
-};
-
-$._MessagePortEventsImpl$1 = function(_ptr) {
-  return new $._MessagePortEventsImpl(_ptr);
-};
-
-$.getFunctionForTypeNameOf = function() {
-  if (!((typeof(navigator)) === 'object')) {
-    return $.typeNameInChrome;
-  }
-  var userAgent = (navigator.userAgent);
-  if ($.contains$1(userAgent, $.CTC12) === true) {
-    return $.typeNameInChrome;
-  } else {
-    if ($.contains$1(userAgent, 'Firefox') === true) {
-      return $.typeNameInFirefox;
-    } else {
-      if ($.contains$1(userAgent, 'MSIE') === true) {
-        return $.typeNameInIE;
-      } else {
-        return $.constructorNameFallback;
-      }
-    }
-  }
 };
 
 $.dynamicBind = function(obj, name$, methods, arguments$) {
@@ -4987,6 +4962,30 @@ $.dynamicBind = function(obj, name$, methods, arguments$) {
   return nullCheckMethod.apply(obj, arguments$);
 };
 
+$._MessagePortEventsImpl$1 = function(_ptr) {
+  return new $._MessagePortEventsImpl(_ptr);
+};
+
+$.getFunctionForTypeNameOf = function() {
+  if (!((typeof(navigator)) === 'object')) {
+    return $.typeNameInChrome;
+  }
+  var userAgent = (navigator.userAgent);
+  if ($.contains$1(userAgent, $.CTC12) === true) {
+    return $.typeNameInChrome;
+  } else {
+    if ($.contains$1(userAgent, 'Firefox') === true) {
+      return $.typeNameInFirefox;
+    } else {
+      if ($.contains$1(userAgent, 'MSIE') === true) {
+        return $.typeNameInIE;
+      } else {
+        return $.constructorNameFallback;
+      }
+    }
+  }
+};
+
 $.index = function(a, index) {
   if (typeof a == "string" || a.constructor === Array) {
     var key = (index >>> 0);
@@ -4995,6 +4994,12 @@ $.index = function(a, index) {
     }
   }
   return $.index$slow(a, index);
+};
+
+$.forEach3 = function(iterable, f) {
+  for (var t1 = $.iterator(iterable); t1.hasNext$0() === true; ) {
+    f.$call$1(t1.next$0());
+  }
 };
 
 $._ElementEventsImpl$1 = function(_ptr) {
@@ -5006,12 +5011,6 @@ $.toLowerCase = function(receiver) {
     return receiver.toLowerCase$0();
   }
   return receiver.toLowerCase();
-};
-
-$.forEach3 = function(iterable, f) {
-  for (var t1 = $.iterator(iterable); t1.hasNext$0() === true; ) {
-    f.$call$1(t1.next$0());
-  }
 };
 
 $.parseDouble = function(str) {
@@ -5097,12 +5096,6 @@ $.eq = function(a, b) {
   return a === b;
 };
 
-$.StringBufferImpl$1 = function(content$) {
-  var t1 = new $.StringBufferImpl((void 0), (void 0));
-  t1.StringBufferImpl$1(content$);
-  return t1;
-};
-
 $.HashMapImplementation$0 = function() {
   var t1 = new $.HashMapImplementation((void 0), (void 0), (void 0), (void 0), (void 0));
   t1.HashMapImplementation$0();
@@ -5114,6 +5107,12 @@ $.substring$1 = function(receiver, startIndex) {
     return receiver.substring$1(startIndex);
   }
   return $.substring$2(receiver, startIndex, (void 0));
+};
+
+$.StringBufferImpl$1 = function(content$) {
+  var t1 = new $.StringBufferImpl((void 0), (void 0));
+  t1.StringBufferImpl$1(content$);
+  return t1;
 };
 
 $._SharedWorkerContextEventsImpl$1 = function(_ptr) {

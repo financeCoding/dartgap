@@ -18,7 +18,7 @@ body {
     padding:4px 0px 2px 10px;
 }
   
-#info > h4{
+#info > li {
 	font-size:.95em;
     margin:5px 0;
 }
