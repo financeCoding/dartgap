@@ -27,8 +27,8 @@ dartgap.onDeviceReady((Device device) {
 
 Finally to get the code running on your device check these platform specific guides
 
-* [iOS]
-* [Android]
+* [iOS](doc/iOS.md)
+* [Android](doc/Android.md) 
 
 Cordova API status
 ------------------
@@ -45,6 +45,7 @@ Cordova API status
 * Geolocation
 * Media
 * Notification: Work started
+* Screen: **Fully implemented** 
 * Storage: 
   * WebSQL: **Fully implemented**
   * LocalStorage: Work started 
