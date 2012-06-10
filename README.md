@@ -25,19 +25,10 @@ dartgap.onDeviceReady((Device device) {
 });
 ```
 
-Also checkout the iOS example below
+Also check the following device specific guides
 
-Getting started on iOS
-----------------------
-
-1. Install the latest Cordova and create a sample application by following [this guide][ios]
-1. Copy the **test/iOS/index.html** file from **DartGap** into your projects **www** folder.
-1. Compile **test/CordovaApp.dart** with **frogc** and copy **CordovaApp.dart.js** to the projects **www** folder
-1. Copy **DartGap.js** to your projects **www** folder.
-1. Launch iOS Simulator from XCode.
-
-If you change the Dart code in the application remember to recompile and copy it to the **www** folder again. 
-Then restart the iOS simulator.
+* [iOS]
+* [Android]
 
 Cordova API status
 ------------------
@@ -48,14 +39,14 @@ Cordova API status
 * Compass
 * Connection
 * Contacts
-* Device: Fully implemented
+* Device: **Fully implemented**
 * Events
 * File
 * Geolocation
 * Media
 * Notification: Work started
 * Storage: 
-  * WebSQL: Fully implemented
+  * WebSQL: **Fully implemented**
   * LocalStorage: Work started 
 
 
@@ -64,4 +55,3 @@ TODO
 * Implement more of the Cordova API http://docs.phonegap.com/en/edge/index.html
 * publish API documentation on GitHub
 
-[ios]: http://wiki.phonegap.com/w/page/52010495/Getting%20Started%20with%20PhoneGap-Cordova%20and%20Xcode%204

@@ -9,28 +9,28 @@
 #import("dart:json");
 #import("../log/Lib.dart");
 
-#source("src/DartGap.dart");
-#source("src/Device.dart");
-#source("src/DeviceDatabase.dart");
-#source("src/DeviceInfo.dart");
-#source("src/DeviceNotification.dart");
-#source("src/SQLBatch.dart");
-#source("src/SQLBatchResult.dart");
-#source("src/SQLResult.dart");
+#source("src/dartgap.dart");
+#source("src/device.dart");
+#source("src/device_database.dart");
+#source("src/device_info.dart");
+#source("src/device_notification.dart");
+#source("src/sql_batch.dart");
+#source("src/sql_batch_result.dart");
+#source("src/sql_result.dart");
 
-#source("src/impl/_DartGapImpl.dart");
-#source("src/impl/_DeviceAware.dart");
-#source("src/impl/_DeviceDatabaseImpl.dart");
-#source("src/impl/_DeviceImpl.dart");
-#source("src/impl/_DeviceInfoImpl.dart");
-#source("src/impl/_DeviceMessage.dart");
-#source("src/impl/_DeviceMessageAware.dart");
-#source("src/impl/_DeviceMessageRouter.dart");
-#source("src/impl/_DeviceNotificationImpl.dart");
-#source("src/impl/_Guid.dart");
-#source("src/impl/_SQLBatchImpl.dart");
-#source("src/impl/_SQLBatchResultImpl.dart");
-#source("src/impl/_SQLResultImpl.dart");
+#source("src/impl/dartgap_impl.dart");
+#source("src/impl/device_aware.dart");
+#source("src/impl/device_database_impl.dart");
+#source("src/impl/device_impl.dart");
+#source("src/impl/device_info_impl.dart");
+#source("src/impl/device_message.dart");
+#source("src/impl/device_message_aware.dart");
+#source("src/impl/device_message_router.dart");
+#source("src/impl/device_notification_impl.dart");
+#source("src/impl/guid.dart");
+#source("src/impl/sql_batch_impl.dart");
+#source("src/impl/sql_batch_result_impl.dart");
+#source("src/impl/sql_result_impl.dart");
 
 DartGap get dartgap() => new _DartGapImpl();
 
