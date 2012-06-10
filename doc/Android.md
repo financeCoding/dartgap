@@ -22,7 +22,7 @@ Android Cordova Setup
 1. Before continuing check that the following commands works: **java, javac, npm, android** and **adb** 
 1. Run the Android SDK Manager by typing **android** in a prompt and install the **ARM** and **Intel ABIs**
 1. Clone Cordova from https://github.com/apache/incubator-cordova-android into a folder named **cordova**
-1. Download [commons-codec][commons-codec] move it's jar inside Cordova
+1. Download [commons-codec][commons-codec] and move it's jar inside Cordova
  * unzip commons-codec-1.6-bin.zip
  * mkdir cordova/framework/libs
  * cp -a commons-codec-1.6/commons-codec-1.6.jar cordova/framework/libs
