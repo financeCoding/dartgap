@@ -1,10 +1,25 @@
-Getting started on iOS
-----------------------
+DartGap on iOS
+==============
 
+XCode Setup
+-----------
 1. Install the latest Cordova version from http://phonegap.com/download.
-1. Create a sample application by following [this guide][ios]
-1. Copy the **test/iOS/index.html** file from **DartGap** into your projects **www** folder.
-1. Compile **test/CordovaApp.dart** with **frogc** and copy **CordovaApp.dart.js** to the projects **www** folder
+
+XCode Cordova Setup
+-------------------
+A detailed description on how to create a Cordova with XCode can be
+found [here][ios]. A short version is given below
+
+1. Start XCode and choose "File -> New -> Project", then select "Cordova-based Application" 
+1. Give your app a name and uncheck "Use Automatic Reference Counting"
+1. In finder navigate to the folder you created the project in and drag
+   the **www** folder into the XCode project window.
+
+Create iOS Dart App
+-------------------
+
+1. Copy the **templates/iOS/index.html** file from **DartGap** into your projects **www** folder.
+1. Compile **templates/CordovaApp.dart** with **dart2js** and copy **CordovaApp.dart.js** to the projects **www** folder
 1. Copy **DartGap.js** to your projects **www** folder.
 1. Launch iOS Simulator from XCode.
 

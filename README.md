@@ -10,9 +10,7 @@ the idea is to implement all of it. So if you find something missing then grab t
 Getting started
 ---------------
 
-Make sure you have downloaded and installed the latest release of
-PhoneGap from http://phonegap.com/download. Next to use DartGap grab the
-following code from GitHub
+To use DartGap grab the following code from GitHub
 
  * ```git clone https://github.com/Qalqo/dartgap```
  * ```git clone https://github.com/Qalqo/log4dart```
@@ -27,7 +25,7 @@ dartgap.onDeviceReady((Device device) {
 });
 ```
 
-Also check the following device specific guides
+Finally to get the code running on your device check these platform specific guides
 
 * [iOS]
 * [Android]
@@ -51,9 +49,7 @@ Cordova API status
   * WebSQL: **Fully implemented**
   * LocalStorage: Work started 
 
-
 TODO
 ----
 * Implement more of the Cordova API http://docs.phonegap.com/en/edge/index.html
-* publish API documentation on GitHub
 
