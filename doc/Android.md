@@ -9,8 +9,8 @@ Eclipse Setup
 1. Restart Eclipse and choose to download the latest Android SDK (dialog
    after restart).
 
-Android and Cordova Setup
--------------------------
+Android Cordova Setup
+---------------------
 
 1. Assert that the following enviroment variables exists
  * ANDROID_HOME (fx: ANDROID_HOME=/Applications/android-sdk/tools)
@@ -39,11 +39,6 @@ Android and Cordova Setup
 1. Enable cordova tools
  * cd cordova/bin
  * npm install
-1. Test the example project
- * ./bin/emulate
- * ./bin/create
- * cd example
- * ./cordova/debug 
 1. Create your own app
  * ./bin/create folder/to/create/app/in com.mycompany.app MyApp
  * cd folder/to/create/app/in
