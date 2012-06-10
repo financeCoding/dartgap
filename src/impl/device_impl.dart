@@ -5,7 +5,8 @@
 
 class _DeviceImpl extends _DeviceAware implements Device {
   _DeviceImpl()
-    : notification = new _DeviceNotificationImpl(), 
+    : accelerometer = new _DeviceAccelerometerImpl(), 
+      notification = new _DeviceNotificationImpl(), 
       super("device");
   
   Future<DeviceInfo> get info() {
@@ -45,5 +46,6 @@ class _DeviceImpl extends _DeviceAware implements Device {
   }
   
   final DeviceNotification notification;
+  final DeviceAccelerometer accelerometer; 
 }
 

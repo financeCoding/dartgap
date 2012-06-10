@@ -8,7 +8,7 @@ main() {
     // device API
     device.info.then((DeviceInfo deviceInfo) {
       _addHtml(""" 
-        <article id='info'>
+        <article id='info' class='box'>
           <h2>Dart is running on:</h2>
           <ul>
             <li>Platform: ${deviceInfo.platform}</li>   
@@ -22,26 +22,52 @@ main() {
           </ul>
         </article>
       """);
-      
-      // notification API
-      _addHtml(""" 
-        <article id='notification'>
-          <h2>Dart Notifications</h2>
-          <ul>
-             <li><button id='alert'>Alert</button></li>
-             <li><button id='beep'>Beep</button></li>
-             <li><button id='confirm'>Confirm</button></li>
-             <li><button id='vibrate'>Vibrate</button></li>
-          </ul>
-        </article>
-      """);
-      document.query("#alert").on.click.add((e) => device.notification.alert("Dart says hello"));
-      document.query("#beep").on.click.add((e) => device.notification.beep(2));
-      document.query("#confirm").on.click.add((e) {
-        var confirmCallback = device.notification.confirm("Dart rocks");
-        confirmCallback.then((int btn) => device.notification.alert("clicked $btn"));
+    });
+    
+    // notification API
+    _addHtml(""" 
+      <article id='notification' class='box'>
+        <h2>Dart Notifications</h2>
+        <ul>
+           <li><button id='alert'>Alert</button></li>
+           <li><button id='beep'>Beep</button></li>
+           <li><button id='confirm'>Confirm</button></li>
+           <li><button id='vibrate'>Vibrate</button></li>
+        </ul>
+      </article>
+    """);
+    document.query("#alert").on.click.add((e) => device.notification.alert("Dart says hello"));
+    document.query("#beep").on.click.add((e) => device.notification.beep(2));
+    document.query("#confirm").on.click.add((e) {
+      var callback = device.notification.confirm("Dart rocks");
+      callback.then((int btn) => device.notification.alert("clicked $btn"));
+    });
+    document.query("#vibrate").on.click.add((e) => device.notification.vibrate(2000));
+    
+    // accelerometer API
+    _addHtml(""" 
+      <article id='accelerometer' class='box'>
+        <h2>Dart Accelerometer</h2>
+        <ul>
+          <li><button id='current'>Get Current Acceleration</button></br>
+            <ul>
+              <li>X: <span id="x">unknown</span></li>
+              <li>Y: <span id="y">unknown</span></li>
+              <li>Z: <span id="z">unknown</span></li>
+              <li>Time: <span id="time">unknown</span></li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+    """);
+    document.query("#current").on.click.add((e) {
+      var callback = device.accelerometer.currentAcceleration;
+      callback.then((Map accelData) {
+        document.query("#x").innerHTML = accelData["x"];
+        document.query("#y").innerHTML = accelData["y"];
+        document.query("#z").innerHTML = accelData["z"];
+        document.query("#time").innerHTML = accelData["timestamp"];
       });
-      document.query("#vibrate").on.click.add((e) => device.notification.vibrate(2000));
     });
     
     // database API

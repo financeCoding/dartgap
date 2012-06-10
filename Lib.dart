@@ -12,6 +12,7 @@
 
 #source("src/dartgap.dart");
 #source("src/device.dart");
+#source("src/device_accelerometer.dart");
 #source("src/device_database.dart");
 #source("src/device_info.dart");
 #source("src/device_notification.dart");
@@ -21,6 +22,7 @@
 #source("src/sql_result.dart");
 
 #source("src/impl/dartgap_impl.dart");
+#source("src/impl/device_accelerometer_impl.dart");
 #source("src/impl/device_aware.dart");
 #source("src/impl/device_database_impl.dart");
 #source("src/impl/device_impl.dart");

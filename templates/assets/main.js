@@ -26,14 +26,6 @@ var getLocation = function() {
     navigator.geolocation.getCurrentPosition(suc, locFail);
 };
 
-var beep = function() {
-    navigator.notification.beep(2);
-};
-
-var vibrate = function() {
-    navigator.notification.vibrate(0);
-};
-
 function roundNumber(num) {
     var dec = 3;
     var result = Math.round(num * Math.pow(10, dec)) / Math.pow(10, dec);
@@ -41,12 +33,6 @@ function roundNumber(num) {
 }
 
 var accelerationWatch = null;
-
-function updateAcceleration(a) {
-    document.getElementById('x').innerHTML = roundNumber(a.x);
-    document.getElementById('y').innerHTML = roundNumber(a.y);
-    document.getElementById('z').innerHTML = roundNumber(a.z);
-}
 
 var toggleAccel = function() {
     if (accelerationWatch !== null) {

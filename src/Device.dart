@@ -8,6 +8,11 @@
  */
 interface Device {
   /**
+   * Access device accelerometer
+   */
+  DeviceAccelerometer get accelerometer();
+  
+  /**
    * Handler for visual, audible, and tactile device notifications.
    */
   DeviceNotification get notification();
