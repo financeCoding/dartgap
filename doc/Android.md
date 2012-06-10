@@ -14,34 +14,36 @@ Android Cordova Setup
 ---------------------
 
 1. Assert that the following enviroment variables exists
- * ANDROID_HOME (ex: ANDROID_HOME=/Applications/android-sdk/tools)
- * ANT_HOME (ex: ANT_HOME=/usr/share/ant)
- * JAVA_HOME (ex: JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home)
+ * ```ANDROID_HOME``` (ex: ANDROID_HOME=/Applications/android-sdk/tools)
+ * ```ANT_HOME``` (ex: ANT_HOME=/usr/share/ant)
+ * ```JAVA_HOME``` (ex: JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home)
 1. Add Android folders to your path 
- * ex: export PATH=/Applications/android-sdk/tools:/Applications/android-sdk/platform-tools:$PATH)
-1. Before continuing check that the following commands works: **java, javac, npm, android and adb** 
+ * ```export PATH=/Applications/android-sdk/tools:/Applications/android-sdk/platform-tools:$PATH```
+1. Before continuing check that the following commands works: **java, javac, npm, android** and **adb** 
 1. Run the Android SDK Manager by typing **android** in a prompt and install the **ARM** and **Intel ABIs**
-1. Clone Cordova from https://github.com/apache/incubator-cordova-android into folder **cordova**
+1. Clone Cordova from https://github.com/apache/incubator-cordova-android into a folder named **cordova**
 1. Download [commons-codec][commons-codec] move it's jar inside Cordova
  * unzip commons-codec-1.6-bin.zip
  * mkdir cordova/framework/libs
  * cp -a commons-codec-1.6/commons-codec-1.6.jar cordova/framework/libs
 1. Build the cordova.jar
- * cd cordova/framework
- * android update project -p . -t android-15
- * ant jar
+ * ```cd cordova/framework```
+ * ```android update project -p . -t android-15```
+ * ```ant jar```
 1. Enable cordova tools
- * cd cordova/bin
- * npm install
+ * ```cd cordova/bin```
+ * ```npm install```
 
 Create Android Dart Application
 -------------------------------
 
 In the cordova folder execute the following commands
 
-1. ./bin/create folder/to/create/app/in com.mycompany.app MyApp
-1. cd folder/to/create/app/in
-1. ./cordova/emulate
-1. ./cordova/debug
+```
+./bin/create folder/to/create/app/in com.mycompany.app MyApp
+cd folder/to/create/app/in
+./cordova/emulate
+./cordova/debug
+```
  
-[commons-codes]: http://mirrors.dotsrc.org/apache/commons/codec/binaries/commons-codec-1.6-bin.zip
+[commons-codec]: http://mirrors.dotsrc.org/apache/commons/codec/binaries/commons-codec-1.6-bin.zip
