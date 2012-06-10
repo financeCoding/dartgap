@@ -16,7 +16,7 @@ To use DartGap grab the following code from GitHub
  * ```git clone https://github.com/Qalqo/log4dart```
  * ```mv log4dart log```
 
-Then import dartgap/Lib.dart into your Dart code and then start
+Then import dartgap/lib.dart into your Dart code and then start
 interacting with Cordova via
 
 ```
@@ -27,8 +27,8 @@ dartgap.onDeviceReady((Device device) {
 
 Finally to get the code running on your device check these platform specific guides
 
-* [iOS](doc/iOS.md)
-* [Android](doc/Android.md) 
+* [iOS][ios]
+* [Android][android] 
 
 Cordova API status
 ------------------
@@ -54,3 +54,5 @@ TODO
 ----
 * Implement more of the Cordova API http://docs.phonegap.com/en/edge/index.html
 
+[android]: https://github.com/Qalqo/dartgap/blob/master/doc/android.md
+[ios]: https://github.com/Qalqo/dartgap/blob/master/doc/iOS.md
