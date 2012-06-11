@@ -8,7 +8,7 @@
 #import("dart:html");
 #import("dart:json");
 
-#import("../log/Lib.dart");
+#import("package:log4dart/Lib.dart");
 
 #source("src/dartgap.dart");
 #source("src/device.dart");

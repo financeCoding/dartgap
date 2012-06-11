@@ -10,14 +10,22 @@ you find something missing then grab the keyboard and send us a pull request.
 Getting started
 ---------------
 
-To use DartGap grab the following code from GitHub
+Create a Dart project and add a **pubspec.yaml** file to it 
 
- * ```git clone https://github.com/Qalqo/dartgap```
- * ```git clone https://github.com/Qalqo/log4dart```
- * ```mv log4dart log```
+``` 
+dependencies:
+  dartgap:
+    git: git://github.com/Qalqo/dartgap.git
+```
 
-Then import dartgap/lib.dart into your Dart code and then start
-interacting with Cordova via
+and run **pub install** to install **dartgap** (including its
+dependencies). Now add import 
+
+``` 
+#import("package:dartgap/lib.dart") 
+```
+
+to your Dart code and then start interacting with Cordova via
 
 ```
 dartgap.onDeviceReady((Device device) {

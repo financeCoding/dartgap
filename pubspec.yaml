@@ -1,0 +1,4 @@
+dependencies:
+  log4dart:
+    git: git://github.com/Qalqo/log4dart.git
+
