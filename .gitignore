@@ -1,3 +1,5 @@
 *.dart.js
 samples
 templates/out.js
+.children
+.project
